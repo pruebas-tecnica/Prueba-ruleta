@@ -2,7 +2,7 @@ import mongoose, { Schema } from "mongoose";
 
 const apuestaSchema = new Schema({
   cantidad: {
-    type: String,
+    type: Number,
     required: true,
   },
   numero: {
@@ -18,7 +18,7 @@ const apuestaSchema = new Schema({
     type: String,
     required: true,
   },
-  ruleta: {
+  ruletaId: {
     type: Schema.Types.ObjectId,
     ref: "Ruleta",
   },
