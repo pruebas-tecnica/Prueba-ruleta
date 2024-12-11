@@ -32,7 +32,23 @@ async function updateRuleta(req, res) {
     });
   }
 }
+async function listRuletas(req, res) {
+  try {
+    const ruletas = await Ruleta.find().select("id status");
+    res
+      .status(200)
+      .json(
+        ruletas.map((r) => ({
+          id: r._id,
+          estado: r.status ? "abierta" : "cerrada",
+        }))
+      );
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
 export default {
   createRuleta: createRuleta,
   updateRuleta: updateRuleta,
+  listRuletas: listRuletas,
 };

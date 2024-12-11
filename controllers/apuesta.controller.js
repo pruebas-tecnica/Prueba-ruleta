@@ -71,6 +71,7 @@ async function createApuesta(req, res) {
   }
 }
 
+
 export default {
   createApuesta: createApuesta,
 };
